@@ -3,11 +3,11 @@ package com.example.android.quakereport;
 import android.app.Activity;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
+import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
-
+import android.widget.TextView;
 import java.util.ArrayList;
 
 /**
@@ -35,10 +35,36 @@ public class EarthquakeAdapter extends ArrayAdapter<Earthquake> {
     @NonNull
     @Override
     public View getView(int position, @Nullable View convertView, @NonNull ViewGroup parent) {
-        return super.getView(position, convertView, parent);
+        // Check if the existing view is being reused, otherwise inflate the view
+        View listItemView = convertView;
+        if(listItemView == null) {
+            listItemView = LayoutInflater.from(getContext()).inflate(
+                    R.layout.eartquake_list_item, parent, false);
+        }
 
+        // Get the {@link EarthquakeAdapter} object located at this position in the list
+        Earthquake currentEarthquake = getItem(position);
 
+        // Find the TextView in the eartquake_list_item.xmlt_item.xml layout with the ID version_name
+        TextView magnitudeTextView = (TextView) listItemView.findViewById(R.id.magnitude);
+        // Get the version name from the current AndroidFlavor object and
+        // set this text on the name TextView
+        magnitudeTextView.setText(currentEarthquake.getmMagnitute());
 
+        // Find the TextView in the eartquake_list_item_list_item.xml layout with the ID version_name
+        TextView locationTextView = (TextView) listItemView.findViewById(R.id.location);
+        // Get the version name from the current AndroidFlavor object and
+        // set this text on the name TextView
+        locationTextView.setText(currentEarthquake.getmLocation());
 
+        // Find the TextView in the eartquake_list_item.xmlt_item.xml layout with the ID version_name
+        TextView dateTextView = (TextView) listItemView.findViewById(R.id.date);
+        // Get the version name from the current AndroidFlavor object and
+        // set this text on the name TextView
+        dateTextView.setText(currentEarthquake.getmDate());
+
+        // Return the whole list item layout (containing 3 TextViews)
+        // so that it can be shown in the ListView
+        return listItemView;
     }
 }

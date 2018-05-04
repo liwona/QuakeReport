@@ -1,5 +1,6 @@
 package com.example.android.quakereport;
 
+import java.text.SimpleDateFormat;
 import java.util.Date;
 
 /**
@@ -9,38 +10,45 @@ import java.util.Date;
 public class Earthquake {
 
     /** Magnitude volume of earthquake */
-    private double mEarthquakeMagnitute;
+    private String mMagnitute;
 
     /** Location of earthquake */
-    private String mEarthquakeLocation;
+    private String mLocation;
 
     /** Date of earthquake */
-    private Date mEarthquakeDate;
-
+    private String mDate;
 
     /**
      * Create a new Earthquake object.
      *
-     * @param earthquakeMagnitude is strength of earthquake
-     * @param earthquakeLocation is the location of the earthquake
-     * @param earthquakeDate is date of the earthquake
+     * @param earthquakeMagnitude is magnitude (size) of earthquake
+     * @param earthquakeLocation is the city location of the earthquake
+     * @param earthquakeDate is date of the earthquake happened
      */
-    public Earthquake(double earthquakeMagnitude, String earthquakeLocation, Date earthquakeDate){
-        mEarthquakeMagnitute = earthquakeMagnitude;
-        mEarthquakeLocation = earthquakeLocation;
-        mEarthquakeDate = earthquakeDate;
+    public Earthquake(String earthquakeMagnitude, String earthquakeLocation, String earthquakeDate){
+        mMagnitute = earthquakeMagnitude;
+        mLocation = earthquakeLocation;
+        mDate= earthquakeDate;
     }
 
-
-    public double getmEarthquakeMagnitute() {
-        return mEarthquakeMagnitute;
+    /**
+     * @return magnitude of the earthquake
+     */
+    public String getmMagnitute() {
+        return mMagnitute;
     }
 
-    public String getmEarthquakeLocation() {
-        return mEarthquakeLocation;
+    /**
+     * @return location of the earthquake
+     */
+    public String getmLocation() {
+        return mLocation;
     }
 
-    public Date getmEarthquakeDate() {
-        return mEarthquakeDate;
+    /**
+     * @return date of the earthquake
+     */
+    public String getmDate() {
+        return mDate;
     }
 }
