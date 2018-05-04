@@ -10,7 +10,7 @@ import java.util.Date;
 public class Earthquake {
 
     /** Magnitude volume of earthquake */
-    private String mMagnitute;
+    private double mMagnitude;
 
     /** Location of earthquake */
     private String mLocation;
@@ -26,8 +26,8 @@ public class Earthquake {
      * @param timeInMilliseconds is the time in milliseconds (from the Epoch) when the
      *  earthquake happened
      */
-    public Earthquake(String earthquakeMagnitude, String earthquakeLocation, long timeInMilliseconds){
-        mMagnitute = earthquakeMagnitude;
+    public Earthquake(double earthquakeMagnitude, String earthquakeLocation, long timeInMilliseconds){
+        mMagnitude = earthquakeMagnitude;
         mLocation = earthquakeLocation;
         mTimeInMilliseconds = timeInMilliseconds;
     }
@@ -35,8 +35,8 @@ public class Earthquake {
     /**
      * @return magnitude of the earthquake
      */
-    public String getMagnitute() {
-        return mMagnitute;
+    public double getMagnitude() {
+        return mMagnitude;
     }
 
     /**
