@@ -1,8 +1,5 @@
 package com.example.android.quakereport;
 
-import java.text.SimpleDateFormat;
-import java.util.Date;
-
 /**
  * Created by Iwona on 04.05.2018.
  */
@@ -18,6 +15,10 @@ public class Earthquake {
     /** Time of the earthquake */
     private long mTimeInMilliseconds;
 
+    /** Website of the earthquake */
+    private String mUrl;
+
+
     /**
      * Create a new Earthquake object.
      *
@@ -25,11 +26,14 @@ public class Earthquake {
      * @param earthquakeLocation is the city location of the earthquake
      * @param timeInMilliseconds is the time in milliseconds (from the Epoch) when the
      *  earthquake happened
+     * @param url is the website URL to find more details about the earthquake
      */
-    public Earthquake(double earthquakeMagnitude, String earthquakeLocation, long timeInMilliseconds){
+    public Earthquake(double earthquakeMagnitude, String earthquakeLocation, long timeInMilliseconds,
+                      String url){
         mMagnitude = earthquakeMagnitude;
         mLocation = earthquakeLocation;
         mTimeInMilliseconds = timeInMilliseconds;
+        mUrl = url;
     }
 
     /**
@@ -51,5 +55,12 @@ public class Earthquake {
      */
     public long getTimeInMilliseconds () {
         return mTimeInMilliseconds;
+    }
+
+    /**
+     * @return URL of the earthquake
+     */
+    public String getmUrl() {
+        return mUrl;
     }
 }
